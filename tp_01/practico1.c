@@ -83,7 +83,7 @@ void Actividad1(int *areaRayada) {
 
 // Actividad 2
 void Actividad2() {
-    // Implementa aquí la funcionalidad de la actividad 2
+    // Falta hacer
 }
 
 // Actividad 3
@@ -132,23 +132,16 @@ void Actividad5(int *cantSemillas) {
 
 // Actividad 6
 void Actividad6() {
-    float cx, cy, radio; // Coordenadas del centro del círculo y su radio
-    float px, py;        // Coordenadas del punto
+    float cx, cy, radio; 
+    float px, py;        
 
-    // Pedir al usuario las coordenadas del centro del círculo y el radio
     printf("Ingrese las coordenadas del centro del circulo (cx, cy): ");
     scanf("%f %f", &cx, &cy);
     printf("Ingrese el radio del circulo: ");
     scanf("%f", &radio);
-
-    // Pedir al usuario las coordenadas del punto
     printf("Ingrese las coordenadas del punto (px, py): ");
     scanf("%f %f", &px, &py);
-
-    // Calcular la distancia entre el centro del círculo y el punto
     float distancia = sqrt((px - cx) * (px - cx) + (py - cy) * (py - cy));
-
-    // Verificar si la distancia es menor o igual al radio
     if (distancia <= radio) {
         printf("El punto (%.2f, %.2f) esta dentro o en el borde del circulo.\n", px, py);
     } else {
