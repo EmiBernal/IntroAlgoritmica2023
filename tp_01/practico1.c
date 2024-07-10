@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <math.h>
 
-// Variables a utilizar
+// Variables 
 int superficieRayada;
 int superficieNoRayada;
 int cantidadPuntos;
