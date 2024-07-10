@@ -8,6 +8,7 @@ int superficieRayada;
 int superficieNoRayada;
 int cantidadPuntos;
 int cantidadSemillas;
+int costoManoDeObra;
 
 // Perfiles de acciones
 void Actividad1(int *areaRayada);
@@ -15,6 +16,7 @@ void Actividad3(int *areaNoRayada);
 void Actividad4(int *cantPuntos);
 void Actividad5(int *cantSemillas);
 void Actividad6();
+void Actividad7(int *costoManoObra);
 
 int main() {
     int opcion;
@@ -22,7 +24,6 @@ int main() {
     do {
         printf("\nMenu de opciones: \n");
         printf("1) Actividad 1\n");
-        printf("2) Actividad 2\n");
         printf("3) Actividad 3\n");
         printf("4) Actividad 4\n");
         printf("5) Actividad 5\n");
@@ -53,6 +54,10 @@ int main() {
             case 6:
                 Actividad6();
                 break;
+            case 7:
+                Actividad7(&costoManoDeObra);
+                printf("El costo de mano de obra es de $%d", costoManoDeObra);
+                break;
             case 8:
                 printf("Saliendo...\n");
                 break;
@@ -79,11 +84,6 @@ void Actividad1(int *areaRayada) {
     supTriangulo = ((a / 2) * (a / 2)) / 2;
     supRayada = supCuadrado - supTriangulo;
     *areaRayada = supRayada;
-}
-
-// Actividad 2
-void Actividad2() {
-    // Falta hacer
 }
 
 // Actividad 3
@@ -122,9 +122,9 @@ void Actividad5(int *cantSemillas) {
     int anchoLote;
     int loteM2;
 
-    printf("Ingrese la altura del lote: ");
+    printf("Ingrese la altura del lote en metros: ");
     scanf("%d", &altoLote);
-    printf("Ingrese la ancho del lote: ");
+    printf("Ingrese lo ancho que es el lote en metros: ");
     scanf("%d", &anchoLote);
     loteM2 = anchoLote * altoLote;
     *cantSemillas = loteM2 * 80;
@@ -147,4 +147,20 @@ void Actividad6() {
     } else {
         printf("El punto (%.2f, %.2f) esta fuera del circulo.\n", px, py);
     }
+}
+
+// Actividad 7
+void Actividad7(int *costoManoObra) {
+    int anchoGalpon;
+    int altoGalpon;
+    int montoFijo;
+    int galponM2;
+    int costoManoObra;
+
+    printf("Ingrese la altura del galpon en metros: ");
+    scanf("%d", &altoGalpon);
+    printf("Ingrese lo ancho que es el galpon en metros: ");
+    scanf("%d", &anchoGalpon);
+    galponM2 = anchoGalpon * altoGalpon;
+    *costoManoObra = galponM2 * montoFijo;
 }
