@@ -1,4 +1,4 @@
-// Practico 1
+// Practico 1 con actividades divididas en distintos modulos funcionalmente independientes
 
 #include <stdio.h>
 #include <math.h>
