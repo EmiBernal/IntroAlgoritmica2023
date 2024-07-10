@@ -1,26 +1,22 @@
-//Practico 1
+// Practico 1
 
 #include <stdio.h>
+#include <math.h>
 
-//variables a utilizar
+// Variables a utilizar
 int superficieRayada;
 int superficieNoRayada;
 int cantidadPuntos;
 int cantidadSemillas;
 
-
-
-//perfiles de acciones
+// Perfiles de acciones
 void Actividad1(int *areaRayada);
 void Actividad3(int *areaNoRayada);
 void Actividad4(int *cantPuntos);
 void Actividad5(int *cantSemillas);
+void Actividad6();
 
-
-
-
-int main () {
-
+int main() {
     int opcion;
 
     do {
@@ -32,17 +28,17 @@ int main () {
         printf("5) Actividad 5\n");
         printf("6) Actividad 6\n");
         printf("7) Actividad 7\n");
-        printf("8) Salir");
-        printf("\nIngrese la opcion: ");
+        printf("8) Salir\n");
+        printf("Ingrese la opcion: ");
 
         scanf("%d", &opcion);
 
         switch (opcion) {
-            case 1: 
+            case 1:
                 Actividad1(&superficieRayada);
                 printf("El area de la superficie rayada es de %d metros\n", superficieRayada);
                 break;
-            case 3: 
+            case 3:
                 Actividad3(&superficieNoRayada);
                 printf("El area de la superficie no rayada es de %d metros\n", superficieNoRayada);
                 break;
@@ -54,40 +50,43 @@ int main () {
                 Actividad5(&cantidadSemillas);
                 printf("La cantidad de semillas es de %d\n", cantidadSemillas);
                 break;
-            case 8: 
+            case 6:
+                Actividad6();
+                break;
+            case 8:
                 printf("Saliendo...\n");
                 break;
             default:
                 printf("Opcion no valida, vuelva a intentarlo.\n");
                 break;
         }
-    }while (opcion != 8);
+    } while (opcion != 8);
 
     return 0;
 }
 
-//actividad 1
-void Actividad1(int *areaRayada){ 
-int a;
-int supRayada;
-int supCuadrado;
-int supTriangulo;
+// Actividad 1
+void Actividad1(int *areaRayada) {
+    int a;
+    int supRayada;
+    int supCuadrado;
+    int supTriangulo;
 
-printf("\nIngrese lo que mide, en metros, uno de los lados del cuadrado: ");
-scanf("%d", &a);
+    printf("\nIngrese lo que mide, en metros, uno de los lados del cuadrado: ");
+    scanf("%d", &a);
 
-supCuadrado = a * a;
-supTriangulo = ((a/2) * (a/2)) / 2;
-supRayada = supCuadrado - supTriangulo;
-*areaRayada = supRayada;
+    supCuadrado = a * a;
+    supTriangulo = ((a / 2) * (a / 2)) / 2;
+    supRayada = supCuadrado - supTriangulo;
+    *areaRayada = supRayada;
 }
 
-//actividad 2
-void Actividad2(){
-
+// Actividad 2
+void Actividad2() {
+    // Implementa aquí la funcionalidad de la actividad 2
 }
 
-//actividad 3
+// Actividad 3
 void Actividad3(int *areaNoRayada) {
     int a;
     float areaCirc;
@@ -97,36 +96,62 @@ void Actividad3(int *areaNoRayada) {
     scanf("%d", &a);
 
     areaCuad = a * a;
-    areaCirc = 3.14 * (a / 2.0) * (a / 2.0); 
+    areaCirc = 3.14 * (a / 2.0) * (a / 2.0);
     *areaNoRayada = areaCuad - areaCirc;
 }
 
-//actividad 4
-void Actividad4(int *cantPuntos){
-int parGan;
-int parPer;
-int parEmp;
+// Actividad 4
+void Actividad4(int *cantPuntos) {
+    int parGan;
+    int parPer;
+    int parEmp;
 
-printf("Ingrese la cantidad de partidos ganados: ");
-scanf("%d", &parGan);
-printf("Ingrese la cantidad de partidos empatados: ");
-scanf("%d", &parEmp);
-printf("Ingrese la cantidad de partidos perdidos: ");
-scanf("%d", &parPer);
+    printf("Ingrese la cantidad de partidos ganados: ");
+    scanf("%d", &parGan);
+    printf("Ingrese la cantidad de partidos empatados: ");
+    scanf("%d", &parEmp);
+    printf("Ingrese la cantidad de partidos perdidos: ");
+    scanf("%d", &parPer);
 
-*cantPuntos = parGan * 3 + parEmp * 1 + parPer * 0;
+    *cantPuntos = parGan * 3 + parEmp * 1 + parPer * 0;
 }
 
-void Actividad5(int *cantSemillas){
-int altoLote;
-int anchoLote;
-int loteM2;
+// Actividad 5
+void Actividad5(int *cantSemillas) {
+    int altoLote;
+    int anchoLote;
+    int loteM2;
 
-printf("Ingrese la altura del lote: ");
-scanf("%d", &altoLote);
-printf("Ingrese la ancho del lote: ");
-scanf("%d", &anchoLote);
-loteM2 = anchoLote * altoLote;
-*cantSemillas = loteM2 * 80;
+    printf("Ingrese la altura del lote: ");
+    scanf("%d", &altoLote);
+    printf("Ingrese la ancho del lote: ");
+    scanf("%d", &anchoLote);
+    loteM2 = anchoLote * altoLote;
+    *cantSemillas = loteM2 * 80;
+}
 
+// Actividad 6
+void Actividad6() {
+    float cx, cy, radio; // Coordenadas del centro del círculo y su radio
+    float px, py;        // Coordenadas del punto
+
+    // Pedir al usuario las coordenadas del centro del círculo y el radio
+    printf("Ingrese las coordenadas del centro del circulo (cx, cy): ");
+    scanf("%f %f", &cx, &cy);
+    printf("Ingrese el radio del circulo: ");
+    scanf("%f", &radio);
+
+    // Pedir al usuario las coordenadas del punto
+    printf("Ingrese las coordenadas del punto (px, py): ");
+    scanf("%f %f", &px, &py);
+
+    // Calcular la distancia entre el centro del círculo y el punto
+    float distancia = sqrt((px - cx) * (px - cx) + (py - cy) * (py - cy));
+
+    // Verificar si la distancia es menor o igual al radio
+    if (distancia <= radio) {
+        printf("El punto (%.2f, %.2f) esta dentro o en el borde del circulo.\n", px, py);
+    } else {
+        printf("El punto (%.2f, %.2f) esta fuera del circulo.\n", px, py);
+    }
 }
