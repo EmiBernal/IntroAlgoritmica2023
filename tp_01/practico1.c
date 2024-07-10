@@ -56,7 +56,7 @@ int main() {
                 break;
             case 7:
                 Actividad7(&costoManoDeObra);
-                printf("El costo de mano de obra es de $%d", costoManoDeObra);
+                printf("El costo de mano de obra es de $%d\n", costoManoDeObra);
                 break;
             case 8:
                 printf("Saliendo...\n");
@@ -155,12 +155,13 @@ void Actividad7(int *costoManoObra) {
     int altoGalpon;
     int montoFijo;
     int galponM2;
-    int costoManoObra;
 
     printf("Ingrese la altura del galpon en metros: ");
     scanf("%d", &altoGalpon);
     printf("Ingrese lo ancho que es el galpon en metros: ");
     scanf("%d", &anchoGalpon);
+    printf("Ingrese el monto fijo: ");
+    scanf("%d", &montoFijo);
     galponM2 = anchoGalpon * altoGalpon;
     *costoManoObra = galponM2 * montoFijo;
 }
