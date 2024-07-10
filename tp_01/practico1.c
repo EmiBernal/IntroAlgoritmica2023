@@ -24,6 +24,7 @@ int main() {
     do {
         printf("\nMenu de opciones: \n");
         printf("1) Actividad 1\n");
+        printf("2) Actividad 2\n");
         printf("3) Actividad 3\n");
         printf("4) Actividad 4\n");
         printf("5) Actividad 5\n");
@@ -38,6 +39,9 @@ int main() {
             case 1:
                 Actividad1(&superficieRayada);
                 printf("El area de la superficie rayada es de %d metros\n", superficieRayada);
+                break;
+            case 2:
+                printf("No disponible actualmente, vuelva a intentarlo con otra actividad\n");
                 break;
             case 3:
                 Actividad3(&superficieNoRayada);
