@@ -1,5 +1,5 @@
 # IntroAlgoritmica2023
-//Spanish
+//Español
 
 Actividades de la asignatura "Introduccion a la Algoritmica y Programacion"
 
