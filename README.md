@@ -1,5 +1,6 @@
 # IntroAlgoritmica2023
 //Spanish
+
 Actividades de la asignatura "Introduccion a la Algoritmica y Programacion"
 
 Estas actividades son del año 2022-2023.
@@ -9,6 +10,7 @@ En cada práctico, cada actividad está dividida en módulos resueltos como una 
 Existen varios archivos en lenguaje C que intentan replicar los algoritmos diseñados para las prácticas. Dado que la implementación puede variar respecto al algoritmo escrito, algunos archivos funcionan correctamente, otros presentan un desempeño regular y algunos presentan errores en su funcionamiento. Si se corrige un error en alguno de estos archivos, no hay inconveniente en realizar un pull request con la corrección.
 
 //English
+
 Activities of the subject "Introduction to Algorithmics and Programming".
 
 These activities are from the year 2022-2023.
