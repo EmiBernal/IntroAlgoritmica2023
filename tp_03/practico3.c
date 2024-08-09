@@ -11,7 +11,12 @@ void Actividad3();
 void Actividad4();
 //Actividad 5 no disponible ya que no pide codigo 
 void Actividad6();
-
+void Actividad7();
+void Actividad8();
+//Actividad 9 no disponible ya que no pide codigo 
+//Actividad 10 no disponible ya que no pide codigo 
+void Actividad11();
+void Actividad12();
 
 int main (){
 
@@ -27,8 +32,8 @@ int main (){
         printf("6) Actividad 6\n");
         printf("7) Actividad 7\n");
         printf("8) Actividad 8\n");
-        printf("9) Actividad 9\n");
-        printf("10) Actividad 10\n");
+        printf("9) Actividad 9 (no disponible)\n");
+        printf("10) Actividad 10 (no disponible)\n");
         printf("11) Actividad 11\n");
         printf("12) Actividad 12\n");
         printf("13) Actividad 13\n");
@@ -64,12 +69,50 @@ int main (){
                 Actividad6();
                 break;
             case 7:
-                
+                Actividad7();
                 break;
             case 8:
+                Actividad8();
+                break;
+            case 9:
+                printf("No disponible actualmente, vuelva a intentarlo con otra actividad\n");
+                break;
+            case 10:
+                printf("No disponible actualmente, vuelva a intentarlo con otra actividad\n");
+                break;
+            case 11:
+                Actividad11();
+                break;
+            case 12:
+                Actividad12();
+                break;
+            case 13:
+
+                break;
+            case 14:
+
+                break;
+            case 15:
+
+                break;
+            case 16:
+
+                break;
+            case 17:
+
+                break;
+            case 18:
+
+                break;
+            case 19:
+
+                break;
+            case 20:
+
+                break;
         }
     }while (opcion != 21);
-
+    printf("\nAbandonando el sistema\n\n");
     return 0;
 }
 
@@ -183,16 +226,126 @@ printf("\nEl precio final a pagar es de $%d\n", pasajeFinal);
 
 
 //Actividad 7
+void Actividad7(){
+int tiempos[3];
+int i;
+int j;
+int intercambio;
+struct TGanador 
+{
+    int pri;
+    int seg;
+    int ter;
+};
+struct TGanador gan;
 
+printf("\nBienvenido al sistema de tiempo de Natacion!!!\n");
+printf("Ingrese la cantidad de tiempo del primer nadador:");
+scanf("%d", &tiempos[0]);
+printf("\nIngrese la cantidad de tiempo del segundo nadador:");
+scanf("%d", &tiempos[1]);
+printf("\nIngrese la cantidad de tiempo del tercer nadador:");
+scanf("%d", &tiempos[2]);
 
+for(i = 0; i < 2; i++){
+    for (j = 0; j < 2 - i; j++)
+    {
+        if (tiempos[j] > tiempos[j+1])
+        {
+            intercambio = tiempos[j];
+            tiempos[j] = tiempos[j+1];
+            tiempos[j+1] = intercambio;
+        }
+    }
+}           //Metodo burbuja para ordenar
 
+gan.pri = tiempos[0];
+gan.seg = tiempos[1];
+gan.ter = tiempos[2];
 
+printf("\nPrimer Ganador: %d", gan.pri);
+printf("\nSegundo Ganador: %d", gan.seg);
+printf("\nTercer Ganador: %d\n", gan.ter);
+}
 
+//Actividad 8
+void Actividad8(){
+int n;
 
+printf("\nIngrese el numero para saber si es multiplo de 2, 3 o de 2 y 3:");
+scanf("%d", &n);
+if ((n%2==0)&&(n%3==0))
+{
+    printf("\n%d es multipo de 2 y de 3 a la vez\n",n);
+}else{
+    if (n%2==0)
+    {
+        printf("\n%d es multipo de 2\n",n);
+    }else{
+        if (n%3==0)
+        {
+            printf("\n%d es multipo de 3\n",n);
+        }
+    }
+}
+}
 
+//Actividad 11
+void Actividad11(){
+int mesAnio;
+int cantDias;
+do
+{
+    printf("\nIngrese el mes del anio (entre el 1 y el 12):");
+    scanf("%d", &mesAnio);
+} while (!(mesAnio >= 1 && mesAnio <= 12));
 
+if((mesAnio == 1) || (mesAnio == 3) || (mesAnio == 5) || (mesAnio == 7) || (mesAnio == 8) || (mesAnio == 10) || (mesAnio == 12)){
+    cantDias = 31;
+}else{
+    if((mesAnio == 4) || (mesAnio == 6) || (mesAnio == 9) || (mesAnio == 11)){
+        cantDias = 30;
+    }else{
+        if(mesAnio == 2){
+            cantDias = 28;
+        }
+    }
+}
+printf("\nPor lo que en el mes %d hay %d dias\n", mesAnio, cantDias);
+}
 
+//Actividad 12
+void Actividad12(){
+int ladoUno;
+int ladoDos;
+int ladoTres;
 
+printf("\nIngrese el primer lado del triangulo:\n");
+scanf("%d", &ladoUno);
+printf("\nIngrese el segundo lado del triangulo:\n");
+scanf("%d", &ladoDos);
+printf("\nIngrese el tercer lado del triangulo:\n");
+scanf("%d", &ladoTres);
+
+if (ladoUno == ladoDos && (ladoDos == ladoTres)){
+    printf("\nEs un triangulo equilatero\n");
+}else{
+    if((ladoUno == ladoDos) && (ladoDos != ladoTres)){
+        printf("\nEs un triangulo isosceles\n");
+    }else{
+        if((ladoDos == ladoTres) && (ladoTres != ladoUno)){
+            printf("\nEs un triangulo isosceles\n");
+        }else{
+            if((ladoUno == ladoTres) && (ladoTres != ladoDos)){
+                printf("\nEs un triangulo isosceles\n");
+            }else{
+                printf("\nEs un triangulo escaleno\n");
+            }
+        }
+    }
+}
+
+}
 
 
 
