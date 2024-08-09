@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <math.h>
-
+#include <string.h>
 
 //perfiles de acciones
 void Actividad1();
@@ -17,6 +17,13 @@ void Actividad8();
 //Actividad 10 no disponible ya que no pide codigo 
 void Actividad11();
 void Actividad12();
+void Actividad13();
+void Actividad14();
+void Actividad15();
+void Actividad16();
+void Actividad17();
+
+
 
 int main (){
 
@@ -87,19 +94,19 @@ int main (){
                 Actividad12();
                 break;
             case 13:
-
+                Actividad13();
                 break;
             case 14:
-
+                Actividad14();
                 break;
             case 15:
-
+                Actividad15();
                 break;
             case 16:
-
+                Actividad16();
                 break;
             case 17:
-
+                Actividad17();
                 break;
             case 18:
 
@@ -315,42 +322,260 @@ printf("\nPor lo que en el mes %d hay %d dias\n", mesAnio, cantDias);
 }
 
 //Actividad 12
-void Actividad12(){
-int ladoUno;
-int ladoDos;
-int ladoTres;
+void Actividad12() {
+    int ladoUno, ladoDos, ladoTres;
 
-printf("\nIngrese el primer lado del triangulo:\n");
-scanf("%d", &ladoUno);
-printf("\nIngrese el segundo lado del triangulo:\n");
-scanf("%d", &ladoDos);
-printf("\nIngrese el tercer lado del triangulo:\n");
-scanf("%d", &ladoTres);
+    printf("\nIngrese el primer lado del triangulo:\n");
+    scanf("%d", &ladoUno);
+    printf("\nIngrese el segundo lado del triangulo:\n");
+    scanf("%d", &ladoDos);
+    printf("\nIngrese el tercer lado del triangulo:\n");
+    scanf("%d", &ladoTres);
 
-if (ladoUno == ladoDos && (ladoDos == ladoTres)){
-    printf("\nEs un triangulo equilatero\n");
-}else{
-    if((ladoUno == ladoDos) && (ladoDos != ladoTres)){
+    if (ladoUno == ladoDos && ladoDos == ladoTres) {
+        printf("\nEs un triangulo equilatero\n");
+    } else if (ladoUno == ladoDos || ladoDos == ladoTres || ladoUno == ladoTres) {
         printf("\nEs un triangulo isosceles\n");
-    }else{
-        if((ladoDos == ladoTres) && (ladoTres != ladoUno)){
-            printf("\nEs un triangulo isosceles\n");
+    } else {
+        printf("\nEs un triangulo escaleno\n");
+    }
+}
+
+//Actividad 13
+void Actividad13(){
+    float priTiempo, segTiempo, terTiempo;
+
+    printf("\nBienvenido al sistema de tiempo de Natacion!!!\n");
+    printf("Ingrese la cantidad de tiempo del primer nadador:");
+    scanf("%f", &priTiempo);  
+    printf("\nIngrese la cantidad de tiempo del segundo nadador:");
+    scanf("%f", &segTiempo);
+    printf("\nIngrese la cantidad de tiempo del tercer nadador:");
+    scanf("%f", &terTiempo);
+
+    if (priTiempo < segTiempo && segTiempo < terTiempo) {
+        printf("\nAscendente\n");
+    } else if (priTiempo > segTiempo && segTiempo > terTiempo) {
+        printf("\nDescendente\n");
+    } else {
+        printf("\nDesordenado\n");
+    }
+}
+
+//Actividad 14
+void Actividad14(){
+int horasTrabajo;
+float salario;
+
+printf("Ingrese la cantidad de horas trabajadas: ");
+scanf("%d", &horasTrabajo);
+
+if(horasTrabajo <= 40){
+    salario = horasTrabajo * 40;
+}else{
+    salario = (40*10) + ((horasTrabajo - 40) * 15);
+}
+
+printf("\nSu salario es de %2.f\n", salario);
+}
+
+//Actividad 15
+void Actividad15() {
+    char respuestaUno[30];
+    char respuestaDos[30];
+    char respuestaTres[30];
+    int puntajeFinal;
+
+    puntajeFinal = 0;
+
+    printf("\nIngrese la respuesta numero uno: ");
+    scanf("%29s", respuestaUno);
+
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+
+    printf("\nIngrese la respuesta numero dos: ");
+    if (fgets(respuestaDos, sizeof(respuestaDos), stdin) != NULL) {
+        respuestaDos[strcspn(respuestaDos, "\n")] = 0; 
+    }
+
+    printf("\nIngrese la respuesta numero tres: ");
+    if (fgets(respuestaTres, sizeof(respuestaTres), stdin) != NULL) {
+        respuestaTres[strcspn(respuestaTres, "\n")] = 0;  
+    }
+
+    if (strcmp(respuestaUno, "Donatelo") == 0) {
+        puntajeFinal += 100;                           
+    }
+    if (strcmp(respuestaDos, "La Piedad") == 0) {     
+        puntajeFinal += 100;
+    }
+    if (strcmp(respuestaTres, "Rafael") == 0) {
+        puntajeFinal += 100;
+    }
+
+    printf("\nEl puntaje final es de %d\n", puntajeFinal);
+}
+
+//Actividad 16
+void Actividad16(){
+    float a;
+    float b;
+    float c;
+    float d;
+
+    printf("\nIngrese el numero correspondiente para la variable a: ");
+    scanf("%f", &a);
+    printf("\nIngrese el numero correspondiente para la variable b: ");
+    scanf("%f", &b);
+
+    if(a == 0 && b == 0){
+        printf("\nEcuacion degenerada\n");
+    }
+    
+    if (a == 0 && b != 0)
+    {
+        printf("\nExiste una unica raiz\n");
+    }
+
+    if (a != 0 && b != 0)
+    {
+        printf("\nIngrese el numero correspondiente para la variable c:");
+        scanf("%f", &c);
+        d = b * b - 4 * a * c;
+
+        if(d > 0){
+            printf("\nHay dos numeros reales\n");
         }else{
-            if((ladoUno == ladoTres) && (ladoTres != ladoDos)){
-                printf("\nEs un triangulo isosceles\n");
+            if(d == 0){
+                printf("\nHay una sola raiz\n");
             }else{
-                printf("\nEs un triangulo escaleno\n");
+                if(d < 0){
+                    printf("\nHay dos raices complejas\n");
+                }
             }
         }
     }
 }
 
+//Actividad 17
+void Actividad17(){
+
+float x1;       //coordenadas vertices opuesto rectangulo
+float y3;       //coordenadas vertices opuesto rectangulo
+float x2;       //coordenadas vertices opuesto rectangulo
+float y2;       //coordenadas vertices opuesto rectangulo
+float r;        //radio
+float cx;       //coordenadas del centro del circulo
+float cy;       //coordenadas del centro del circulo
+int dentroRec = 0;  //Valor logico
+int dentroCir = 0;  //valor logico
+float d;
+char mensaje[70];   //el mensaje que dira los casos a saber
+float px;       //x del punto problema
+float py;       //y del punto problema
+float res1;     //resultado de restar px - cx para ver si el punto problema pertene al circulo
+float res2;     //resultado de restar py - cy para ver si el punto problema pertene al circulo
+
+printf("Ingrese el valor x del primer vertice del rectangulo \n ");
+    scanf("%f", &x1);
+    printf("Ingrese el valor y del primer vertice del rectangulo \n ");
+    scanf("%f", &y3);
+    printf("Ingrese el valor x del vertice opuesto al primero del rectangulo \n ");
+    scanf("%f", &x2);
+    printf("Ingrese el valor y del vertice opuesto al primero del rectangulo \n ");
+    scanf("%f", &y2);
+    printf("Ingrese el valor x de las coordenadas del punto central del circulo \n ");
+    scanf("%f", &cx);
+    printf("Ingrese el valor y de las coordenadas del punto central del circulo \n ");
+    scanf("%f", &cy);
+    printf("Ingrese el radio del circulo \n ");
+    scanf("%f", &r);
+    printf("Ingrese el valor x de las coordenadas del punto a saber \n ");
+    scanf("%f", &px);
+    printf("Ingrese el valor y de las coordenadas del punto a saber \n ");
+    scanf("%f", &py);
+
+    //Condicional para saber si el punto problema pertenece o no al rectangulo
+
+    if ((px>=x1)&&(px<=x2)&&(py>=y3)&&(py<=y2)){
+        
+        dentroRec = 1; //DentroRect es verdadero
+    }else{
+        if ((px>=x2)&&(px<=x1)&&(py>=y2)&&(py<=y3))
+        {
+            dentroRec = 1; //DentroRect es verdadero
+        }else{
+            if ((px>=x2)&&(px<=x1)&&(py>=y3)&&(py<=y2))
+            {
+                dentroRec = 1; //DentroRect es verdadero
+            }else{
+                if ((px>=x1)&&(px<=x2)&&(py>=y2)&&(py<=y3))
+                {
+                    dentroRec = 1; //DentroRect es verdadero
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    if (r>0)
+    {
+        res1 = px - cx;         //resta necesaria para calculo siguiente
+        res2 = py - cy;         //resta necesaria para calculo siguiente
+    
+    d = sqrt(res1*res1) + (res2*res2);      //teorema de pitagoras
+
+    //Condicional para saber si el punto problema pertenece o no al circulo
+
+    if (d<=r) //distancia es menor al radio del circulo 
+    {
+        dentroCir = 1;
+    }else
+    {
+        dentroCir = 0;
+    }
+
+    //Luego de todos los calculos, llega el momento de saber a donde pertenece el punto problema
+    
+    if ((dentroCir==1)&&(dentroRec==1))
+    {
+        strcpy(mensaje, "El punto es interior al circulo y al rectangulo");
+    }else{
+        if ((dentroCir==1)&&(dentroRec==0))
+        {
+            strcpy(mensaje, "El punto es interior al circulo");
+        }else{
+            if ((dentroCir==0)&&(dentroRec==1))
+            {
+                strcpy(mensaje, "El punto es interior al rectangulo");
+            }else{
+                if ((dentroCir==0)&&(dentroRec==0))
+                {
+                    strcpy(mensaje, "El punto no se encuentra en el circulo y tampoco en el rectangulo");
+                }
+                
+            }
+            
+        }
+        
+    }
+    }else{
+        if (r<=0)
+        {
+        strcpy(mensaje, "Ingrese el radio mayor a 0 porfavor");
+        }
+        
+    }
+    
+
+    printf("%s \n", mensaje);
+
 }
 
-
-
-
-
-
-
-
+//Actividad 18
+void Actividad18(){
+    
+}
