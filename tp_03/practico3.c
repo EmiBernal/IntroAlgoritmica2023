@@ -22,9 +22,11 @@ void Actividad14();
 void Actividad15();
 void Actividad16();
 void Actividad17();
+void Actividad18();
+void Actividad19();
+void Actividad20();
 
-
-
+//Inicio del algoritmo
 int main (){
 
     int opcion;
@@ -109,13 +111,13 @@ int main (){
                 Actividad17();
                 break;
             case 18:
-
+                Actividad18();
                 break;
             case 19:
-
+                Actividad19();
                 break;
             case 20:
-
+                Actividad20();
                 break;
         }
     }while (opcion != 21);
@@ -577,5 +579,130 @@ printf("Ingrese el valor x del primer vertice del rectangulo \n ");
 
 //Actividad 18
 void Actividad18(){
+    int anio;
+
+    printf("\nIngrese el anio: ");
+    scanf("%d", &anio);
+
+    if((anio % 4 == 0) && (!(anio % 100 == 0)) || (anio % 400 == 0)){
+        printf("\nAnio Bisiesto\n");
+    }else{
+        printf("\nAnio no Bisiesto\n");
+    }
+}
+
+//Actividad 19
+void Actividad19(){
+    int dia;
+    int mes;
+    int anio;
+
+    printf("\nIngrese el dia: ");
+    scanf("%d", &dia);
     
+    printf("\nIngrese el mes: ");
+    scanf("%d", &mes);
+    
+    printf("\nIngrese el anio: ");
+    scanf("%d", &anio);
+
+    if((anio % 4 == 0) && (!(anio % 100 == 0)) || (anio % 400 == 0)){
+        
+        if((mes == 12) && (dia == 31)){
+            mes = 01;
+            dia = 01;
+            anio += 1;
+        }else{
+            if((mes == 01) || (mes == 03) || (mes == 05) || (mes == 07) || (mes == 08) || (mes == 10) && (dia == 31)){
+                mes += 1;
+                dia = 01;
+            }else{
+                if((mes == 04) || (mes == 06) || (mes == 09) || (mes == 11) && (dia == 30)){
+                    mes += 1;
+                    dia = 01;
+                }else{
+                    if(mes == 2 && dia == 29){
+                        mes += 1;
+                        dia = 01;
+                    }else{
+                        dia += 1;
+                    }
+                }
+            }
+        }
+    }else{
+        if(mes == 12 && dia == 31){
+            mes = 01;
+            dia = 01;
+            anio += 1;
+        }else{
+            if((mes == 01) || (mes == 03) || (mes == 05) || (mes == 07) || (mes == 08) || (mes == 10) && (dia == 31)){
+                mes += 1;
+                dia = 01;
+            }else{
+                if((mes == 04) || (mes == 06) || (mes == 09) || (mes == 11) && (dia == 30)){
+                    mes += 1;
+                    dia = 01;
+                }else{
+                    if(mes == 2 && dia == 29){
+                        mes += 1;
+                        dia = 01;
+                    }else{
+                        dia += 1;
+                    }
+                }
+            }
+        }
+    }
+
+    printf("\nDia: %d\n", dia);
+    printf("\nMes: %d\n", mes);
+    printf("\nAnio: %d\n", anio);
+
+}
+
+//Actividad 20
+int Actividad20() {
+    typedef struct {
+        int hora;
+        int minutos;
+        int segundos;
+    } TReloj;
+
+    TReloj rel;
+
+    printf("Ingresa la hora para poder calcular la hora +1 seg despues \n");
+    scanf("%d", &rel.hora);
+    printf("Ingresa los minutos para poder calcularlos +1 seg despues \n");
+    scanf("%d", &rel.minutos);
+    printf("Ingresa los segundos actuales para poder calcularlos +1 seg despues \n");
+    scanf("%d", &rel.segundos);
+
+    if ((rel.hora >= 0 && rel.hora <= 23) && (rel.minutos >= 0 && rel.minutos <= 59) && (rel.segundos >= 0 && rel.segundos <= 59)) {
+        if (rel.hora == 23 && rel.minutos == 59 && rel.segundos == 59) {
+            rel.hora = 0;
+            rel.minutos = 0;
+            rel.segundos = 0;
+        } else if (rel.minutos == 59 && rel.segundos == 59) {
+            rel.hora += 1;
+            rel.minutos = 0;
+            rel.segundos = 0;
+        } else if (rel.segundos == 59) {
+            rel.minutos += 1;
+            rel.segundos = 0;
+        } else {
+            rel.segundos += 1;
+        }
+    } else {
+        // Si la hora ingresada no es válida, asigna un valor de error.
+        rel.hora = 99;
+        rel.minutos = 99;
+        rel.segundos = 99;
+    }
+
+    printf("Hora: %02d \n", rel.hora);
+    printf("Minutos: %02d \n", rel.minutos);
+    printf("Segundos: %02d \n", rel.segundos);
+
+    return 0;
 }
